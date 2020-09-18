@@ -8,6 +8,6 @@ Proyecto de la Segunda Semana en Hackspace.
 ## Inicio
 Los pasos para el desarrollo de este proyecto son:
 - Ejecutar el archivo languages.py para generar un diccionario con los lenguajes que se ven en el notebook de la implementación del sistema de recomendación.
-- Ejecutar el notebook en este [respositorio](https://github.com/X4Zero/SISTEMAS_DE_RECOMENDACION), en la última sección se explica como se prepara uno de los sistemas de recomendación para incrustarlo en una aplicación web.
+- Ejecutar el notebook en este [repositorio](https://github.com/X4Zero/SISTEMAS_DE_RECOMENDACION), en la última sección se explica como se prepara uno de los sistemas de recomendación para incrustarlo en una aplicación web.
 - Luego en base al archivo metadata_prod_final.csv cargamos los datos para realizar las recomendaciones.
 
