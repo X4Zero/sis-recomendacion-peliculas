@@ -1,0 +1,98 @@
+{% extends 'layout.html' %} {% block body %}
+<!-- Inicio del bloque body -->
+
+<div class="row">
+    <div class="col-md-5">
+
+        {% with messages = get_flashed_messages() %}
+        <!-- messages -->
+        {% if messages %} {% for message in messages%}
+        <!-- <p>{{ message }}</p> -->
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+        </div>
+        {%endfor%} {% endif %} {% endwith %}
+
+
+        <div class="card card-body">
+
+            <form action="/busqueda" method="POST">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="titulo" placeholder="Título de la película en Inglés">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Buscar
+                    </button>
+                </div>
+
+
+            </form>
+        </div>
+
+
+        {% if data %}
+        <div class="card-body mt-3">
+
+            <!-- <ul>
+                {% for d in data %}
+                <li>d</li>
+                {% endfor %}
+            </ul> -->
+            <table class="table table-striped table-bordered bg-white table-sm">
+                <thead>
+                    <tr>
+                        <td>Título</td>
+                        <td>Seleccionar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in data %}
+                    <tr>
+                        <td>{{ d[1] }}</td>
+                        <td>
+                            <a href="/recomendar/{{d[0]}}" class="btn btn-primary">+</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+    </div>
+    <div class="col-md-7">
+        {% if recomendaciones%}
+        <h2>
+            Recomendaciones para la película:
+        </h2>
+        <h2>{{peli}}</h2>
+        <table class="table table-striped table-bordered bg-white table-sm">
+            <thead>
+                <tr>
+                    <td>Películas</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pelicula in recomendaciones %}
+                <tr>
+                    <!-- <td>{{ pelicula[0]}}</td> -->
+                    <td>{{ pelicula[1]}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock %}
