@@ -36,7 +36,7 @@ def cargar_variables():
     # print(metadata_prod_final.head())
     # print(metadata_prod_final.shape)
 
-    metadata_subset = metadata_prod_final[:7000]
+    metadata_subset = metadata_prod_final[:4000]
 
     count = CountVectorizer(stop_words='english')
     count_matrix = count.fit_transform(metadata_subset['soup'])
